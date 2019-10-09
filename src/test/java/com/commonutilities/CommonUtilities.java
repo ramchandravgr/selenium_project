@@ -4,10 +4,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -236,5 +238,253 @@ public class CommonUtilities {
 		}				
 		return status;
 	}
+	
+	
+	/**
+	 * @author lakshmi
+	 * @param browsertype chrome
+	 * @param url
+	 * @return void
+	 * @description this methods helps to click the element
+	 */
+	
+	// click element method
+	public static void elementClick(String elementName, String pageName, WebElement element) {
+
+		boolean status = true;
+		try {
+			// check for elementName
+			if (elementName.isEmpty() || elementName == null) {
+				throw new Exception("element name can not be blank or null");
+			} else {
+				System.out.println("element Name verified successfully");
+			}
+
+			// check for pageName
+			if (pageName.isEmpty() || pageName == null) {
+				throw new Exception("page name can not be blank or null");
+			} else {
+				System.out.println("page Name verified successfully");
+			}
+
+			// check for element
+			if (element == null) {
+				throw new Exception("element can not be null");
+			} else {
+				System.out.println("element verified successfully");
+			}
+
+			element.click();
+			System.out.println("element " + elementName + " in the page " + pageName + " clicked successfully");
+		} catch (Exception e) {
+
+			status = false;
+			System.out.println(element + "click in the page " + pageName + "  is not successfull");
+
+		}
+
+	}
+
+	
+	/**
+	 * @author lakshmi
+	 * @param browsertype chrome
+	 * @param url
+	 * @return void
+	 * @description this methods helps to send data to the element
+	 */
+	
+	// send data generic method
+
+	public static void sendData(String elementName, String pageName, WebElement element, String data) {
+
+		boolean status = true;
+
+		try {
+			// check for elementName
+			if (elementName.isEmpty() || elementName == null) {
+				throw new Exception("element name can not be blank or null");
+			} else {
+				System.out.println("element Name verified successfully");
+			}
+
+			// check for pageName
+			if (pageName.isEmpty() || pageName == null) {
+				throw new Exception("page name can not be blank or null");
+			} else {
+				System.out.println("page Name verified successfully");
+			}
+
+			// check for element
+			if (element == null) {
+				throw new Exception("element can not be null");
+			} else {
+				System.out.println("element verified successfully");
+			}
+
+			// check for data
+			if (data.isEmpty() || data == null) {
+				throw new Exception("element can not be null");
+			} else {
+				System.out.println("data verified successfully");
+			}
+			element.click();
+			element.clear();
+			element.sendKeys(data);
+			System.out.println(
+					"data " + data + " sent to element " + elementName + " in the page " + pageName + " successfully");
+		} catch (Exception e) {
+			status = false;
+			System.out.println("sending data to " + element + " element is not successfull");
+
+		}
+
+	}
+
+	/**
+	 * @author lakshmi
+	 * @param browsertype chrome
+	 * @param url
+	 * @return void
+	 * @description this methods helps to hover and click the element
+	 */
+	
+	// hover and click method
+
+	public static void elementHoverAndClick(String elementName, String pageName, WebElement element) {
+
+		boolean status = true;
+		try {
+			// check for elementName
+			if (elementName.isEmpty() || elementName == null) {
+				throw new Exception("element name can not be blank or null");
+			} else {
+				System.out.println("element Name verified successfully");
+			}
+
+			// check for pageName
+			if (pageName.isEmpty() || pageName == null) {
+				throw new Exception("page name can not be blank or null");
+			} else {
+				System.out.println("page Name verified successfully");
+			}
+
+			// check for element
+			if (element == null) {
+				throw new Exception("element can not be null");
+			} else {
+				System.out.println("element verified successfully");
+			}
+			Actions act = new Actions(driver);
+			act.moveToElement(element).click(element).build().perform();
+			;
+			// element.click();
+			System.out.println(
+					"element " + elementName + " in the page " + pageName + " hover and  clicked successfully");
+		} catch (Exception e) {
+
+			status = false;
+			System.out.println("click is not successfull");
+
+		}
+
+	}
+
+	/**
+	 * @author lakshmi
+	 * @param browsertype chrome
+	 * @param url
+	 * @return void
+	 * @description this methods helps to  click the element through JavaScript
+	 */
+
+	
+	// JS click method
+	public static void JSClickElement(String elementName, String pageName, WebElement element) {
+
+		boolean status = true;
+		try {
+			// check for elementName
+			if (elementName.isEmpty() || elementName == null) {
+				throw new Exception("element name can not be blank or null");
+			} else {
+				System.out.println("element Name verified successfully");
+			}
+
+			// check for pageName
+			if (pageName.isEmpty() || pageName == null) {
+				throw new Exception("page name can not be blank or null");
+			} else {
+				System.out.println("page Name verified successfully");
+			}
+
+			// check for element
+			if (element == null) {
+				throw new Exception("element can not be null");
+			} else {
+				System.out.println("element verified successfully");
+			}
+
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", element);
+			System.out.println("element " + elementName + " in the page " + pageName + " JS click  successfull");
+		} catch (Exception e) {
+
+			status = false;
+			System.out.println("jsclick for element " + elementName + " in the page " + pageName + "not successfull");
+
+		}
+
+	}
+
+	/**
+	 * @author lakshmi
+	 * @param browsertype chrome
+	 * @param url
+	 * @return attributeValue of string type
+	 * @description this methods helps to  click the element through JavaScript
+	 */
+	
+	// get Attribute method
+	public static String getElementAttributeValue(String elementName, String pageName, WebElement element,
+			String attributeName) {
+
+		String attributeValue = null;
+		try {
+			// check for elementName
+			if (elementName.isEmpty() || elementName == null) {
+				throw new Exception("element name can not be blank or null");
+			} else {
+				System.out.println("element Name verified successfully");
+			}
+
+			// check for pageName
+			if (pageName.isEmpty() || pageName == null) {
+				throw new Exception("page name can not be blank or null");
+			} else {
+				System.out.println("page Name verified successfully");
+			}
+
+			// check for element
+			if (element == null) {
+				throw new Exception("element can not be null");
+			} else {
+				System.out.println("element verified successfully");
+			}
+			// getting text from element
+			attributeValue = element.getAttribute(attributeName);
+
+			System.out.println("getting Attribute value from element " + elementName + " in the page " + pageName
+					+ "is successfull");
+		} catch (Exception e) {
+
+			System.out.println("getting Attribute from element " + elementName + " in the page " + pageName
+					+ "is not successfull");
+
+		}
+		return attributeValue;
+
+	}
+
 
 }

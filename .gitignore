@@ -7,3 +7,4 @@ src/main/java/POM_TestNG_Jenkins/POM_TestNG_Jenkins/App.java
 src/test/java/POM_TestNG_Jenkins/POM_TestNG_Jenkins/AppTest.java
 target/classes/POM_TestNG_Jenkins/POM_TestNG_Jenkins/App.class
 target/test-classes/POM_TestNG_Jenkins/POM_TestNG_Jenkins/AppTest.class
+/target/
