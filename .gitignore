@@ -1,0 +1,9 @@
+.classpath
+.project
+.settings/org.eclipse.core.resources.prefs
+.settings/org.eclipse.jdt.core.prefs
+.settings/org.eclipse.m2e.core.prefs
+src/main/java/POM_TestNG_Jenkins/POM_TestNG_Jenkins/App.java
+src/test/java/POM_TestNG_Jenkins/POM_TestNG_Jenkins/AppTest.java
+target/classes/POM_TestNG_Jenkins/POM_TestNG_Jenkins/App.class
+target/test-classes/POM_TestNG_Jenkins/POM_TestNG_Jenkins/AppTest.class
