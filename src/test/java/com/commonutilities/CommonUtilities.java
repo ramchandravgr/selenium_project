@@ -12,6 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonUtilities {
@@ -486,5 +487,353 @@ public class CommonUtilities {
 
 	}
 
+	/**
+	 * @author: mahi
+	 * @param browsertype
+	 * @return boolean
+	 * @description This method helps the user to display the elementName,pageName, element.
+	 **/
+
+	public static boolean isDisplayed(String elementName, String PageName, WebElement element)
+	{
+		boolean status = true;
+		try{
+			if(elementName== null || elementName.isEmpty())
+			{
+				throw new Exception("elementName can not be  empty"); 
+			}
+			else
+			{
+				System.out.println("elementName verified successfully");
+			}
+			if(PageName==null || PageName.isEmpty())
+			{
+				throw new Exception("PageName can not be empty or null");
+			}	
+			else
+			{
+				System.out.println("PageName verified successfully");
+			}
+			if(element==null)
+			{
+				throw new Exception("element can not be empty");
+			}
+			else
+			{
+				System.out.println("element verified successfully");
+			}
+			if(element.isDisplayed())
+			{
+				System.out.println("Webelement "+elementName+"is Displayed " +PageName+ "is Displayed "+element+" is Displayed  successfully");
+				status = true;
+			}
+		}
+		catch(Exception ex){
+			System.out.print("Exception occured while finding the element");
+			status = false;
+		}
+		return status;
+	}
+
+	/**
+	 * @author: mahi
+	 * @param elementName,pageName,element
+	 * @return boolean
+	 * @description This method helps the user to Enabled the elementName,pageName, element.
+	 **/
+
+	public static boolean isEnabled(String elementName, String pageName, WebElement element){
+		boolean status = true;
+		try{
+
+			//check for input paramters of element name 
+
+			if(elementName.isEmpty()||elementName==null)
+			{
+				throw new Exception("Element Name can not be null or empty");
+			}else
+			{
+				System.out.println("Element name is verified sucessfully");
+			}
+
+
+			if(pageName==null || pageName.isEmpty())
+			{
+				throw new Exception("PageName can not be empty or null");
+			}
+			else{
+				System.out.println("PageName is verified successfully");
+			}
+			if (element==null){
+				throw new Exception ("element can not be null");
+			}
+			else
+			{
+				System.out.println("element is verified successfully");
+			}	
+
+			if(element.isEnabled()){
+				System.out.println("Webelement "+elementName+"is enabled on " +pageName+ "is enabled on "+element+" is enabled on successfully");
+				status = true;
+			}
+		}
+		catch (Exception ex){
+			System.out.println("Exception occured while finding the element");
+			status = false;
+		}
+		return status;
+
+	}
+
+	/**
+	 * @author: mahi
+	 * @param : elementName,pageName,element
+	 * @return boolean
+	 * @description This method helps the user to select the elementName,pageName, element.
+	 **/
+	public static boolean isSelected(String elementName, String PageName, WebElement element){
+		boolean status = true;
+		try{
+			//check the input parameters of elementName
+			if(elementName== null || elementName.isEmpty())
+			{
+				throw new Exception("elementName can not be  empty"); 
+			}
+			else
+			{
+				System.out.println("elementName verified successfully");
+			}
+			//check the input parameters of PageName
+			if(PageName==null || PageName.isEmpty())
+			{
+				throw new Exception("PageName can not be empty or null");
+			}	
+			else
+			{
+				System.out.println("PageName verified successfully");
+			}
+			//check the input parameters of elements
+			if(element==null)
+			{
+				throw new Exception("element can not be empty");
+			}
+			else
+			{
+				System.out.println("element verified successfully");
+			}
+			if(element.isSelected())
+			{
+				System.out.println("Webelement "+elementName+"is Selected " +PageName+ "is selected "+element+" is selected successfully");
+				status = true;
+			}
+		}
+		// for any invalid input parameters raise an exception
+
+		catch(Exception ex){
+			System.out.print("Exception occured while finding the element");
+			status = false;
+		}
+		return status;
+	}
+
+
+
+
+/**
+	 * @author: Mahi
+	 * @param elementname,PageName,element
+	 * @return boolean
+	 * @description This method helps the user to value from the drop down list.
+	 **/
+
+
+
+
+
+	public  static String  getElementText( String elementName, String pageName, WebElement element){
+		String data = "";
+		try{
+			if(elementName== null || elementName.isEmpty())
+			{
+				throw new Exception("elementName can not be  empty"); 
+			}
+			else
+			{
+				System.out.println("elementName verified successfully");
+			}					//check the input parameters of PageName
+			if(pageName==null || pageName.isEmpty())
+			{
+				throw new Exception("PageName can not be empty or null");
+			}	
+			else
+			{
+				System.out.println("PageName verified successfully");					
+			}
+			if(element==null)
+			{
+				throw new Exception("element can not be empty");
+			}					
+                         else
+			{
+				System.out.println("element verified successfully");
+			}
+
+			data = element.getText();
+
+			System.out.println("Webelement "+elementName+"is Selected " +pageName+ "is selected "+element+" is selected successfully");
+
+
+		}
+		// for any invalid input parameters raise an exception
+
+		catch(Exception ex){
+			System.out.print("Exception occured while finding the element");
+
+		}
+		return data;
+	}
+
+
+	/**
+	 * @author: Manoj
+	 * @param elementname,PageName,element,Value
+	 * @return boolean
+	 * @description This method helps the user to value from the drop down list.
+	 **/
+
+	public boolean selectDropDownByValue( String elementName, String PageName, WebElement element, String Value)
+	{
+
+		try{
+			if(elementName== null || elementName.isEmpty())
+			{
+				throw new Exception("elementName can not be  empty"); 
+			}
+			else
+			{
+				System.out.println("elementName verified successfully");
+			}
+			if(PageName==null || PageName.isEmpty())
+			{
+				throw new Exception("PageName can not be empty or null");
+			}	
+			else
+			{
+				System.out.println("PageName verified successfully");
+			}
+			if(element==null)
+			{
+				throw new Exception("element can not be empty");
+			}
+			else
+			{
+				System.out.println("element verified successfully");
+			}
+			Select dropdown = new Select(element);
+			dropdown.selectByValue(Value);
+			return true;
+		}
+		catch (Exception e)
+		{
+			System.out.println(" Values is not available in the dropdown list...!!");
+			return false;
+		}
+	}
+
+	/////
+
+	public boolean selectDropDownByIndex( String elementName, String PageName, WebElement element, int Index)
+	{
+
+		try{
+			if(elementName== null || elementName.isEmpty())
+			{
+				throw new Exception("elementName can not be  empty"); 
+			}
+			else
+			{
+				System.out.println("elementName verified successfully");
+			}
+			if(PageName==null || PageName.isEmpty())
+			{
+				throw new Exception("PageName can not be empty or null");
+			}	
+			else
+			{
+				System.out.println("PageName verified successfully");
+			}
+			if(element==null)
+			{
+				throw new Exception("element can not be empty");
+			}
+			else
+			{
+				System.out.println("element verified successfully");
+			}
+			Select dropdown = new Select(element);
+			dropdown.selectByIndex(Index);
+			return true;
+		}
+		catch (Exception e)
+		{
+			System.out.println(" Values is not available in the dropdown list...!!");
+			return false;
+		}
+	}
+
+	/////
+
+	public boolean selectDropdownByVisisbleText( String elementName, String PageName, WebElement element, String Text)
+	{
+
+		try{
+			if(elementName== null || elementName.isEmpty())
+			{
+				throw new Exception("elementName can not be  empty"); 
+			}
+			else
+			{
+				System.out.println("elementName verified successfully");
+			}
+			if(PageName==null || PageName.isEmpty())
+			{
+				throw new Exception("PageName can not be empty or null");
+			}	
+			else
+			{
+				System.out.println("PageName verified successfully");
+			}
+			if(element==null)
+			{
+				throw new Exception("element can not be empty");
+			}
+			else
+			{
+				System.out.println("element verified successfully");
+			}
+			Select dropdown = new Select(element);
+			dropdown.selectByVisibleText(Text);
+			return true;
+		}
+		catch (Exception e)
+		{
+			System.out.println(" Values is not available in the dropdown list...!!");
+			return false;
+		}
+	}
+
+
+
+
 
 }
+
+
+
+
+
+
+
+
+
+
