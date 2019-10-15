@@ -43,7 +43,7 @@ public class CommonUtilities {
 		{
 			System.out.println("Browser type parameter is verified sucessfully");
 		}
-		
+		/*
 		//check for the URL
 		if(url.isEmpty() || url == null || !url.startsWith("https://") )
 		{
@@ -52,7 +52,7 @@ public class CommonUtilities {
 		else 
 		{
 			System.out.println("URL parameter is verified successfully");
-		}
+		}*/
 		
 		System.out.println("Launching application.....!!!");
 		
@@ -524,7 +524,7 @@ public class CommonUtilities {
 			}
 			if(element.isDisplayed())
 			{
-				System.out.println("Webelement "+elementName+"is Displayed " +PageName+ "is Displayed "+element+" is Displayed  successfully");
+				System.out.println("Webelement "+elementName+" is Displayed on the page " +PageName);
 				status = true;
 			}
 		}
