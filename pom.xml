@@ -30,6 +30,7 @@
 	</dependency>
 	
 	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+<<<<<<< Updated upstream
 <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi</artifactId>
@@ -50,6 +51,14 @@
     <version>2.41.2</version>
 </dependency>
                         
+=======
+	<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>3.17</version>
+	</dependency>
+	
+>>>>>>> Stashed changes
     
   </dependencies>
 </project>
