@@ -13,7 +13,7 @@ public class Tc_01_Authentication_Header_Validation extends CommonUtilities{
 		SignIn_Authentication signin=new SignIn_Authentication();
 		
 		signin.verify_Authentication_Page_Display();
-		
+		signin.createAccount();
 		
 		
 

@@ -39,5 +39,41 @@ public class SignIn_Authentication extends CommonUtilities{
 		}
 		
 	}
+	
+	public void createAccount() {
+		boolean status = true;
+		try {
+			status = isDisplayed("CreateAccountEmail", "SignIn", signInPageOR.txt_emailCcreate);
+			if(status) {
+				System.out.println("Create Account Email is displayed");
+			}
+			else {
+				System.out.println("Create Account Email is not displayed");
+			}
+			sendData("createAccount_Email", "SignIn", signInPageOR.txt_emailCcreate, "lakshmigottipati13@gmail.com");
+			
+			
+			
+		}catch(Exception e)
+		{
+			System.out.println(e.getStackTrace());
+		}
+		
+		try {
+			status = isDisplayed("CreateAccount_SubmitBtn", "Sign", signInPageOR.btn_CreateAccount);
+			if(status) {
+				System.out.println("Create Account Button is displayed");
+			}
+			else {
+				System.out.println("Create Account Button is not displayed");
+			}
+			elementClick("CreateAccount_Btn", "SignIn", signInPageOR.btn_CreateAccount);
+			
+		}catch(Exception e)
+		{
+			System.out.println(e.getStackTrace());
+		}
+		
+	}
 
 }
