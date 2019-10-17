@@ -27,7 +27,7 @@ public class SignIn_Authentication extends CommonUtilities{
 			status=isDisplayed("Authentication", "Sign In", signInPageOR.heading_authentication);
 			if(status)
 			{
-				System.out.println("Authenticatio header is displayed");
+				System.out.println("Authentication header is displayed");
 			}else
 			{
 				System.out.println("Authentication header is not displayed");

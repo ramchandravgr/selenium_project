@@ -40,7 +40,8 @@ public class HomePage_OR {
 	@FindBy(xpath="//li[@class='step_current  second']")
 	public WebElement Tabs_signin;
 	
-	
+	@FindBy(xpath="//p[@class='alert alert-warning']")
+	public WebElement Search_result_error;
 	
 	
 	
