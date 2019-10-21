@@ -5,11 +5,21 @@ import java.io.FileInputStream;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
-public class ExcelParser {
-	public XSSFWorkbook workbook;
+import com.annotations.Annotations;
 
-	ExcelParser() throws Exception {
+public class ExcelParser extends Annotations{
+	
+	SoftAssert asrt=new SoftAssert();
+	
+	public static XSSFWorkbook workbook;
+	
+	public static String crntTestCase;
+
+	public ExcelParser(){
+		try {
 		System.out.println("Parsing Excel...");
 		String path = "./TestData/TestData.xlsx";
 		File f = new File(path);
@@ -20,36 +30,42 @@ public class ExcelParser {
 			workbook = new XSSFWorkbook(fis);
 			System.out.println("Excel loaded successfully");
 		}
+		}catch(Exception e)
+		{
+			Assert.assertFalse(false, "Error in loading excel");
+			System.out.println();
+			System.out.println(e.getStackTrace());
+		}
 	}
 	
-	public int getRowCount(String sheetName) {
+	public static int getRowCount(String sheetName) {
 				
 		return workbook.getSheet(sheetName).getLastRowNum();		
 		
 		
 	}
-	public int getColumnCount(String sheetName) {
+	public static int getColumnCount(String sheetName) {
 		
 		return workbook.getSheet(sheetName).getRow(0).getLastCellNum();		
 		
 		
 	}
 	
-	public int searchTestCase(String sheetName,String testCaseName) {
+	public static int searchTestCase(String sheetName) {
 		int rowNum = 0;
 		int rowCount = getRowCount(sheetName);
 		for(int r=1;r<=rowCount;r++) {
 		String crntTestCaseName = workbook.getSheet(sheetName).getRow(r).getCell(0).getStringCellValue();
-		if(crntTestCaseName.trim().equals(testCaseName)) {
+		if(crntTestCaseName.trim().equals(crntTestCase)) {
 			rowNum = r;
-			System.out.println("The TestCase"+testCaseName+"is found at row number "+ r);
+			System.out.println("The TestCase"+crntTestCase+"is found at row number "+ r);
 			break;
 		}
 		}
 		return rowNum;
 	}
 	// search column number method
-	public int searchColumn(String sheetName,String columnName) {
+	public static int searchColumn(String sheetName,String columnName) {
 		int ColumnNum = 0;
 		int columnCount = getColumnCount(sheetName);
 		for(int r=1;r<=columnCount;r++) {
@@ -63,11 +79,11 @@ public class ExcelParser {
 		return ColumnNum;
 	}
 	//getting cell value method
-	public String getExcelData(String sheetName, String testCaseName, String columnName) throws Exception {
+	public static String getExcelData(String sheetName,String columnName) throws Exception {
 		
 		String data="";
 		
-		int rownumber=searchTestCase(sheetName,testCaseName);
+		int rownumber=searchTestCase(sheetName);
 		int colnumber=searchColumn(sheetName,columnName);
 		if(rownumber!=0 && colnumber!=0)
 		{
@@ -89,7 +105,7 @@ public class ExcelParser {
 		
 		if(data.isEmpty())
 		{
-			throw new Exception ("Test Data not found fo the test case "+testCaseName +" Under the sheet "+sheetName);
+			throw new Exception ("Test Data not found fo the test case "+crntTestCase +" Under the sheet "+sheetName);
 		}
 		return data;
 		
