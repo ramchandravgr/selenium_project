@@ -1,6 +1,7 @@
 package com.applicationbehaviours;
 
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
 
 import com.applicationor.SignInPage_OR;
 import com.commonutilities.CommonUtilities;
@@ -39,7 +40,7 @@ public class SignIn_Authentication extends CommonUtilities{
 		}
 		
 	}
-	
+	@Test
 	public void createAccount() {
 		boolean status = true;
 		try {

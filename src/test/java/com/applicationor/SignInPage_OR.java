@@ -13,15 +13,18 @@ public class SignInPage_OR {
 	
 	@FindBy(xpath="//h3[text()='Create an account']")
 	public WebElement heading_createAnAccount;
-	
-	@FindBy(xpath="//h3[text()='//h3[text()='Already registered?']']")
-	public WebElement heading_AlreadyRegistered;
+		
 	
 	@FindBy(xpath="//input[@id='email_create']")
 	public WebElement txt_emailCcreate;
 	
 	@FindBy(xpath="//button[@id='SubmitCreate']")
 	public WebElement btn_CreateAccount;
+	
+	//**********Registered Account****************
+	
+	@FindBy(xpath="//h3[text()='//h3[text()='Already registered?']']")
+	public WebElement heading_AlreadyRegistered;
 	
 	@FindBy(xpath="//input[@id='email']")
 	public WebElement txt_emailRegistered;
