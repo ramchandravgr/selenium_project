@@ -19,7 +19,6 @@ import com.reporting.Reporting;
 
 public class CommonUtilities extends Reporting{
 
-	static CommonUtilities cu = new CommonUtilities();
 
 	public static WebDriver driver;
 
@@ -73,11 +72,13 @@ public class CommonUtilities extends Reporting{
 			driver.get(url);
 			driver.manage().window().maximize();
 			System.out.println("Application is launched sucesfully...!!");
+			logStatus("Pass", "Application is launched sucesfully");
 
 		}
 
 		catch (Exception e) {
 			System.out.println("Application is not launched successfully...!!" + e.getMessage());
+			logStatus("Fail", "Application is not launched sucesfully");
 			status = false;
 
 		}
@@ -151,7 +152,7 @@ public class CommonUtilities extends Reporting{
 
 			WebDriverWait wait = new WebDriverWait(driver, duration);
 
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(cu.getXpath(element))));
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(getXpath(element))));
 			System.out.println("Element " + elementName + " is identified on the page " + pagename);
 		} catch (Exception e) {
 			System.out.println("Element " + elementName + " not identified in " + duration + " sec");
@@ -179,7 +180,7 @@ public class CommonUtilities extends Reporting{
 
 			WebDriverWait wait = new WebDriverWait(driver, duration);
 
-			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(cu.getXpath(element))));
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(getXpath(element))));
 			System.out.println("Element " + elementName + " is identified on the page " + pagename);
 		} catch (Exception e) {
 			System.out.println("Element " + elementName + " not identified in " + duration + " sec");

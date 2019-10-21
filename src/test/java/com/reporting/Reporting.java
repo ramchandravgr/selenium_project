@@ -1,6 +1,7 @@
 package com.reporting;
 
 import com.commonutilities.CommonUtilities;
+import com.excelplugin.ExcelParser;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -14,7 +15,8 @@ import org.openqa.selenium.TakesScreenshot;
 
 
 
-public class Reporting {
+public class Reporting extends ExcelParser{
+	
 	
 	public static ExtentReports extent;
 	
