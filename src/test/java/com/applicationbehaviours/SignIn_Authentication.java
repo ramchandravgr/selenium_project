@@ -1,10 +1,15 @@
 package com.applicationbehaviours;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import com.applicationor.SignInPage_OR;
 import com.commonutilities.CommonUtilities;
+
+import junit.framework.Assert;
 
 public class SignIn_Authentication extends CommonUtilities{
 	
@@ -16,6 +21,8 @@ public class SignIn_Authentication extends CommonUtilities{
 		if(signInPageOR==null)signInPageOR=PageFactory.initElements(driver, SignInPage_OR.class);
 		
 	}
+	
+	
 	
 	
 	public void verify_Authentication_Page_Display()
@@ -40,33 +47,46 @@ public class SignIn_Authentication extends CommonUtilities{
 		}
 		
 	}
-	@Test
+	
+	public static String DynamicEmailUsername()
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss");
+		Date d = new Date();
+		String crntDate = sdf.format(d);
+		//System.out.println(crntDate);
+		String emailUsername = "lakshmi"+crntDate+"@gmail.com";
+		System.out.println("email username is :"+emailUsername);
+		return emailUsername;
+		
+	}
+	
 	public void createAccount() {
 		boolean status = true;
-		try {
+
 			status = isDisplayed("CreateAccountEmail", "SignIn", signInPageOR.txt_emailCcreate);
 			if(status) {
-				System.out.println("Create Account Email is displayed");
+				System.out.println("Email address field is displayed");
+				logStatus("pass", "Email address field is displayed");
 			}
 			else {
-				System.out.println("Create Account Email is not displayed");
+				System.out.println("Email address field is not displayed");
+				logStatus("fail", "Email address field is not displayed");
+				Assert.fail("Email address field is not displayed");
+				
 			}
-			sendData("createAccount_Email", "SignIn", signInPageOR.txt_emailCcreate, "lakshmigottipati13@gmail.com");
-			
-			
-			
-		}catch(Exception e)
-		{
-			System.out.println(e.getStackTrace());
-		}
+			sendData("createAccount_Email", "SignIn", signInPageOR.txt_emailCcreate, DynamicEmailUsername());
+		
 		
 		try {
 			status = isDisplayed("CreateAccount_SubmitBtn", "Sign", signInPageOR.btn_CreateAccount);
 			if(status) {
 				System.out.println("Create Account Button is displayed");
+				logStatus("pass", "Create Account Button is displayed");
 			}
 			else {
 				System.out.println("Create Account Button is not displayed");
+				logStatus("fail", "Create Account Button is not displayed");
+				Assert.fail("Create Account Button is not displayed");
 			}
 			elementClick("CreateAccount_Btn", "SignIn", signInPageOR.btn_CreateAccount);
 			
