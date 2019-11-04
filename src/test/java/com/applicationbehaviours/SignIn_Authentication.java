@@ -1,13 +1,16 @@
 package com.applicationbehaviours;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import com.applicationor.SignInPage_OR;
 import com.commonutilities.CommonUtilities;
+import com.commonutilities.FakerData;
 
 import junit.framework.Assert;
 
@@ -15,6 +18,8 @@ public class SignIn_Authentication extends CommonUtilities{
 	
 	
 	public SignInPage_OR signInPageOR;
+	
+	public List<Credentials> credentials=new ArrayList();
 	
 	public SignIn_Authentication()
 	{
@@ -61,6 +66,7 @@ public class SignIn_Authentication extends CommonUtilities{
 	}
 	
 	public void createAccount() {
+		FakerData fd = new FakerData();
 		boolean status = true;
 
 			status = isDisplayed("CreateAccountEmail", "SignIn", signInPageOR.txt_emailCcreate);
@@ -74,7 +80,9 @@ public class SignIn_Authentication extends CommonUtilities{
 				Assert.fail("Email address field is not displayed");
 				
 			}
-			sendData("createAccount_Email", "SignIn", signInPageOR.txt_emailCcreate, DynamicEmailUsername());
+			sendData("createAccount_Email", "SignIn", signInPageOR.txt_emailCcreate,fd.getEmail());
+			
+			credentials.add(new Credentials(fd.getEmail(), fd.getPassword()));
 		
 		
 		try {
@@ -95,6 +103,10 @@ public class SignIn_Authentication extends CommonUtilities{
 			System.out.println(e.getStackTrace());
 		}
 		
+	}
+	
+	public  void signOut() {
+		elementClick("signout", "My account",signInPageOR.lnk_signout);
 	}
 
 }

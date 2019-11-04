@@ -38,6 +38,7 @@ public class SignInPage_OR {
 	@FindBy(xpath="//button[@id='SubmitLogin']")
 	public WebElement btn_SignIn;
 	
-	
+	@FindBy(xpath="(//a[normalize-space(text())='Sign out'])[1]")
+	public WebElement lnk_signout;
 
 }

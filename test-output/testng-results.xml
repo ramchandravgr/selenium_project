@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="38528" started-at="2019-10-21T04:10:33Z" finished-at="2019-10-21T04:11:12Z">
+  <suite started-at="2019-11-02T04:58:00Z" name="Default suite" finished-at="2019-11-02T04:59:49Z" duration-ms="109325">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="38528" started-at="2019-10-21T04:10:33Z" finished-at="2019-10-21T04:11:12Z">
+    <test started-at="2019-11-02T04:58:00Z" name="Default test" finished-at="2019-11-02T04:59:49Z" duration-ms="109325">
       <class name="com.testcases.Tc_01_Authentication_Header_Validation">
-        <test-method status="PASS" signature="intializeTestSuite()[pri:0, instance:com.testcases.Tc_01_Authentication_Header_Validation@3b0090a4]" name="intializeTestSuite" is-config="true" duration-ms="76" started-at="2019-10-21T09:40:33Z" finished-at="2019-10-21T09:40:33Z">
+        <test-method is-config="true" signature="intializeTestSuite()[pri:0, instance:com.testcases.Tc_01_Authentication_Header_Validation@604c5de8]" started-at="2019-11-02T10:28:00Z" name="intializeTestSuite" finished-at="2019-11-02T10:28:00Z" duration-ms="172" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- intializeTestSuite -->
-        <test-method status="PASS" signature="getTestCaseDetails(java.lang.reflect.Method)[pri:0, instance:com.testcases.Tc_01_Authentication_Header_Validation@3b0090a4]" name="getTestCaseDetails" is-config="true" duration-ms="162" started-at="2019-10-21T09:40:33Z" finished-at="2019-10-21T09:40:33Z">
+        <test-method is-config="true" signature="getTestCaseDetails(java.lang.reflect.Method)[pri:0, instance:com.testcases.Tc_01_Authentication_Header_Validation@604c5de8]" started-at="2019-11-02T10:28:00Z" name="getTestCaseDetails" finished-at="2019-11-02T10:28:00Z" duration-ms="406" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,11 +22,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getTestCaseDetails -->
-        <test-method status="PASS" signature="Tc_01_Authentication_Header_Validation()[pri:0, instance:com.testcases.Tc_01_Authentication_Header_Validation@3b0090a4]" name="Tc_01_Authentication_Header_Validation" duration-ms="38049" started-at="2019-10-21T09:40:33Z" finished-at="2019-10-21T09:41:11Z">
+        <test-method signature="Tc_01_Authentication_Header_Validation()[pri:0, instance:com.testcases.Tc_01_Authentication_Header_Validation@604c5de8]" started-at="2019-11-02T10:28:00Z" name="Tc_01_Authentication_Header_Validation" finished-at="2019-11-02T10:29:48Z" duration-ms="107804" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Tc_01_Authentication_Header_Validation -->
-        <test-method status="PASS" signature="publishReport()[pri:0, instance:com.testcases.Tc_01_Authentication_Header_Validation@3b0090a4]" name="publishReport" is-config="true" duration-ms="293" started-at="2019-10-21T09:41:11Z" finished-at="2019-10-21T09:41:12Z">
+        <test-method is-config="true" signature="publishReport()[pri:0, instance:com.testcases.Tc_01_Authentication_Header_Validation@604c5de8]" started-at="2019-11-02T10:29:48Z" name="publishReport" finished-at="2019-11-02T10:29:49Z" duration-ms="1021" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- publishReport -->
